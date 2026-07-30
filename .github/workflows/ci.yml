@@ -119,7 +119,7 @@ jobs:
           
           # Run all notebooks
           run_notebook "deploy/1_HuggingFace_Safetensors.ipynb" || exit 1
-          run_notebook "deploy/2_TRTLLM_Checkpoints_Engines.ipynb" "fix_trtllm_path" || exit 1
+          run_notebook "deploy/2_TRTLLM_Checkpoints_Engines.ipynb" || exit 1
           run_notebook "deploy/3_GGUF_Checkpoints.ipynb" || exit 1
 
       - name: Convert results to HTML format

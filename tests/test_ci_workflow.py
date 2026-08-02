@@ -17,3 +17,6 @@ class TestCIWorkflow(unittest.TestCase):
             if line.strip().startswith("pip install")
         ]
         self.assertTrue(pip_lines, "No pip install command found in workflow")
+        installs = " ".join(pip_lines)
+        self.assertIn("papermill", installs)
+        self.assertIn("nbconvert", installs)

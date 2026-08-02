@@ -14,9 +14,9 @@ class TestCIWorkflow(unittest.TestCase):
         text = WORKFLOW.read_text()
         pip_lines = [
             line.strip() for line in text.splitlines()
-            if line.strip().startswith("pip install")
+            if line.strip().startswith("pip install ipykernel")
         ]
-        self.assertTrue(pip_lines, "No pip install command found in workflow")
+        self.assertTrue(pip_lines, "No notebook dependency install command found in workflow")
         installs = " ".join(pip_lines)
         self.assertIn("papermill", installs)
         self.assertIn("nbconvert", installs)

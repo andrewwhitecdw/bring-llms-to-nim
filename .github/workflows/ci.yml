@@ -55,9 +55,7 @@ jobs:
           fi
           
           echo "Logging in to NGC..."
-          echo "$NGC_API_KEY" | docker login nvcr.io -u '$oauthtoken' --password-stdin
-          
-          if [ $? -eq 0 ]; then
+          if echo "$NGC_API_KEY" | docker login nvcr.io -u '$oauthtoken' --password-stdin; then
             echo "✅ Successfully logged in to NGC"
           else
             echo "❌ Failed to login to NGC"

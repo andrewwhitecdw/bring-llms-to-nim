@@ -69,7 +69,6 @@ jobs:
           # Function to run a single notebook
           run_notebook() {
             local NOTEBOOK_PATH="$1"
-            local FIX_TRTLLM_PATH="${2:-}"
             
             local NOTEBOOK_DIR=$(dirname "$NOTEBOOK_PATH")
             local NOTEBOOK_NAME=$(basename "$NOTEBOOK_PATH" .ipynb)
@@ -119,7 +118,7 @@ jobs:
           
           # Run all notebooks
           run_notebook "deploy/1_HuggingFace_Safetensors.ipynb" || exit 1
-          run_notebook "deploy/2_TRTLLM_Checkpoints_Engines.ipynb" "fix_trtllm_path" || exit 1
+          run_notebook "deploy/2_TRTLLM_Checkpoints_Engines.ipynb" || exit 1
           run_notebook "deploy/3_GGUF_Checkpoints.ipynb" || exit 1
 
       - name: Convert results to HTML format

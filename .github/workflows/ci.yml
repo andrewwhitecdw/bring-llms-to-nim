@@ -149,9 +149,9 @@ jobs:
           
           # Run the test and capture the exit code
           docker run --rm \
-            -v ./deploy/1_HuggingFace_Safetensors_result.html:/app/input/bring_llms_to_nim/1_HuggingFace_Safetensors_result.html \
-            -v ./deploy/2_TRTLLM_Checkpoints_Engines_result.html:/app/input/bring_llms_to_nim/2_TRTLLM_Checkpoints_Engines_result.html \
-            -v ./deploy/3_GGUF_Checkpoints_result.html:/app/input/bring_llms_to_nim/3_GGUF_Checkpoints_result.html \
+            -v "$(pwd)/deploy/1_HuggingFace_Safetensors_result.html:/app/input/bring_llms_to_nim/1_HuggingFace_Safetensors_result.html" \
+            -v "$(pwd)/deploy/2_TRTLLM_Checkpoints_Engines_result.html:/app/input/bring_llms_to_nim/2_TRTLLM_Checkpoints_Engines_result.html" \
+            -v "$(pwd)/deploy/3_GGUF_Checkpoints_result.html:/app/input/bring_llms_to_nim/3_GGUF_Checkpoints_result.html" \
             -v "$(pwd):/workspace" \
             nvcr.io/rw983xdqtcdp/auto_test_team/blueprint-github-test-image:latest \
             pytest -m bring_llms_to_nim --disable-warnings --html=/workspace/bring_llms_to_nim_test.html --self-contained-html

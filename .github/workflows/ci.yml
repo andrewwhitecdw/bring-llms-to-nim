@@ -38,7 +38,7 @@ jobs:
         run: |          
           echo "Installing ipykernel ..."
           python -m pip install --upgrade pip
-          pip install ipykernel
+          pip install ipykernel papermill nbconvert
           echo "Installing Python kernel..."
           python -m ipykernel install --user --name python3 --display-name "Python 3"
           
